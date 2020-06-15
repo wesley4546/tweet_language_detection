@@ -6,7 +6,7 @@ library(dplyr)
 raw_twitter <- read.csv()
 
 
-# This function takes in a tweet and returns "english" if its english and 
+# This function takes in a tweet and returns "english" if its english and
 # "non-english" if its not.
 
 check_for_english <- function(tweet) {
@@ -24,25 +24,24 @@ check_for_english <- function(tweet) {
   # Extracts only english
   english_result <- langs_of_tweet$classificaton %>%
     filter(language == "ENGLISH")
-  
+
   # Extracts the proportions
   probablility_of_en <- english_result$proportion
-  
+
   # Declares threshold
   probability_threshold <- 0.99
-  
+
   # Determines if english
-  if(probablility_of_en > probability_threshold){
+  if (probablility_of_en > probability_threshold) {
     return("english")
   } else {
     return("non-english")
   }
-  
 }
 
 
 # Example
 
-new_dataframe <- 
-  raw_twitter %>% 
+new_dataframe <-
+  raw_twitter %>%
   mutate(english = check_for_english(text))
