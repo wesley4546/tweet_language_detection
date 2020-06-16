@@ -3,7 +3,7 @@ library(stringr)
 library(dplyr)
 
 # Reads in the data
-raw_twitter <- read.csv(here::here("Uni80_botTweets.csv"))
+raw_twitter <- read.csv()
 
 
 # This function takes in a tweet and returns "english" if its english and
