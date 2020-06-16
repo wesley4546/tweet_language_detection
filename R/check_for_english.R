@@ -3,7 +3,7 @@ library(stringr)
 library(dplyr)
 
 # Reads in the data
-raw_twitter <- read.csv()
+raw_twitter <- read.csv(here::here("Uni80_botTweets.csv"))
 
 
 # This function takes in a tweet and returns "english" if its english and
@@ -29,7 +29,7 @@ check_for_english <- function(tweet) {
   probablility_of_en <- english_result$proportion
 
   # Declares threshold
-  probability_threshold <- 0.99
+  probability_threshold <- 0.65
 
   # Determines if english
   if (probablility_of_en > probability_threshold) {
